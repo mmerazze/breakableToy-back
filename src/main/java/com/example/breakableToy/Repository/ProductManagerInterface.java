@@ -13,4 +13,9 @@ public interface ProductManagerInterface {
     public void updatePrice(int id, double newPrice);
     public void updateStock(int id, long newStock);
     public void updateExpirationDate(int id, LocalDate newExpiration);
+    public ArrayList<String> getNames();
+    public ArrayList<String> getCategories();
+    public ArrayList<Double> getPrice();
+    public ArrayList<Long> getStock();
+    public String getCategory(int id);
 }

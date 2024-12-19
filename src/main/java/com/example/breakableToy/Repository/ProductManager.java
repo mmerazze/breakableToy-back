@@ -57,5 +57,40 @@ public class ProductManager implements ProductManagerInterface{
             }
         }
     }
-
+    public ArrayList<String> getNames(){
+        ArrayList<String> names = new ArrayList<>();
+        for(Product prod : products){
+            names.add(prod.getName());
+        }
+        return names;
+    }
+    public ArrayList<String> getCategories(){
+        ArrayList<String> categories = new ArrayList<>();
+        for(Product prod : products){
+            categories.add(prod.getCategory());
+        }
+        return categories;
+    }
+    public ArrayList<Double> getPrice(){
+        ArrayList<Double> prices = new ArrayList<>();
+        for(Product prod : products){
+            prices.add(prod.getPrice());
+        }
+        return prices;
+    }
+    public ArrayList<Long> getStock(){
+        ArrayList<Long> stock = new ArrayList<>();
+        for(Product prod : products){
+            stock.add(prod.getStock());
+        }
+        return stock;
+    }
+    public String getCategory(int id){
+        String resp = "";
+        for(Product prod : products){
+            if(prod.getId() == id)
+                resp = prod.getCategory();
+        }
+        return resp;
+    }
 }
