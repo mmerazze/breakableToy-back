@@ -1,21 +1,23 @@
 package com.example.breakableToy.Repository;
 
 import com.example.breakableToy.Model.Product;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@Repository
 public interface ProductManagerInterface {
-    public ArrayList<Product> getProducts();
-    public void addProduct(String name, String category, double price, long stock);
-    public void updateName(int id, String newName);
-    public void updateCategory(int id, String newCategory);
-    public void updatePrice(int id, double newPrice);
-    public void updateStock(int id, long newStock);
-    public void updateExpirationDate(int id, LocalDate newExpiration);
-    public ArrayList<String> getNames();
-    public ArrayList<String> getCategories();
-    public ArrayList<Double> getPrice();
-    public ArrayList<Long> getStock();
-    public String getCategory(int id);
+    ArrayList<Product> getProducts();
+    boolean addProduct(String name, String category, double price, long stock);
+    void updateName(int id, String newName);
+    void updateCategory(int id, String newCategory);
+    void updatePrice(int id, double newPrice);
+    void updateStock(int id, long newStock);
+    void updateExpirationDate(int id, LocalDate newExpiration);
+    ArrayList<String> getNames();
+    ArrayList<String> getCategories();
+    ArrayList<Double> getPrice();
+    ArrayList<Long> getStock();
+    String getCategory(int id);
 }

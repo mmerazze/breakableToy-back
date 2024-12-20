@@ -80,5 +80,14 @@ public class Product {
         this.updateDate = LocalDate.now();
     }
 
-
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", stock=" + stock +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }

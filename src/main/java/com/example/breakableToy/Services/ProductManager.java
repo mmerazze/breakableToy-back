@@ -1,10 +1,14 @@
-package com.example.breakableToy.Repository;
+package com.example.breakableToy.Services;
 import com.example.breakableToy.Model.Product;
+import com.example.breakableToy.Repository.ProductManagerInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.*;
 
-public class ProductManager implements ProductManagerInterface{
+@Service
+public class ProductManager implements ProductManagerInterface {
     public ArrayList<Product> products;
     public ProductManager(){
         this.products = new ArrayList<Product>();
@@ -13,9 +17,10 @@ public class ProductManager implements ProductManagerInterface{
         return products;
     }
 
-    public void addProduct(String name, String category, double price, long stock) {
+    public boolean addProduct(String name, String category, double price, long stock) {
         Product newProduct = new Product(name, category, price, stock);
         this.products.add(newProduct);
+        return true;
     }
     public void updateName(int id, String newName){
         for(Product prod : products){
