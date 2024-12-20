@@ -16,51 +16,65 @@ public class ProductManager implements ProductManagerInterface {
     public ArrayList<Product> getProducts(){
         return products;
     }
-
     public boolean addProduct(String name, String category, double price, long stock) {
         Product newProduct = new Product(name, category, price, stock);
         this.products.add(newProduct);
         return true;
     }
-    public void updateName(int id, String newName){
+    public boolean updateName(int id, String newName){
+        boolean resp=false;
         for(Product prod : products){
             if(prod.getId() == id) {
                 prod.editName(newName);
+                resp = true;
                 break;
             }
         }
+        return resp;
     }
-    public void updateCategory(int id, String newCategory){
+    public boolean updateCategory(int id, String newCategory){
+        boolean resp = false;
         for(Product prod : products){
             if(prod.getId() == id) {
                 prod.editCategory(newCategory);
+                resp=true;
                 break;
             }
         }
+        return resp;
     }
-    public void updatePrice(int id, double newPrice){
+    public boolean updatePrice(int id, double newPrice){
+        boolean resp = false;
         for(Product prod : products){
             if(prod.getId() == id) {
                 prod.editPrice(newPrice);
+                resp = true;
                 break;
             }
         }
+        return resp;
     }
-    public void updateStock(int id, long newStock){
+    public boolean updateStock(int id, long newStock){
+        boolean resp = false;
         for(Product prod : products){
             if(prod.getId() == id) {
                 prod.editStock(newStock);
+                resp = true;
                 break;
             }
         }
+        return resp;
     }
-    public void updateExpirationDate(int id, LocalDate newExpiration){
+    public boolean updateExpirationDate(int id, LocalDate newExpiration){
+        boolean resp = false;
         for(Product prod : products){
             if(prod.getId() == id) {
                 prod.editExpirationDate(newExpiration);
+                resp = true;
                 break;
             }
         }
+        return resp;
     }
     public ArrayList<String> getNames(){
         ArrayList<String> names = new ArrayList<>();

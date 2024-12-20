@@ -13,18 +13,23 @@ public class Controller {
     @Autowired
     ProductManager productManager;
     @GetMapping("/hello/{name}")
-    public String sayHello(@RequestParam(name = "param1",required = true) int hola, int param2, @PathVariable(name = "name") String name) {
-        System.out.println(name+" "+hola+" "+param2);
+    public String sayHello(@PathVariable(name = "name") String name) {
+        System.out.println(name);
         return "Hello, World!";
     }
     @GetMapping("/getProducts")
     public ArrayList<Product> getProducts(){
         return productManager.getProducts();
     }
-    @PostMapping()
+    @PostMapping("/addProduct")
     public boolean addProduct(@RequestBody Product product){
         System.out.println(product);
         return productManager.addProduct(product.getName(),product.getCategory(),product.getPrice(),product.getStock());
+    }
+    @PostMapping("/updateName")
+    public boolean updateName(int id, String newName){
+        System.out.println(productManager.updateName(id,newName));
+        return productManager.updateName(id,newName);
     }
 
 }
